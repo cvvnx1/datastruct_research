@@ -10,10 +10,11 @@ because of I don't know how to organize a classic c project, so you must compile
 
 ### Example code includes: ###
 List:
-line list
-link list
+>line list
+>
+>link list
 
 Stack:
-FIFO stack
-share FIFO stack
-
+>FIFO stack
+>
+>share FIFO stack
