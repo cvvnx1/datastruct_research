@@ -107,6 +107,9 @@ void LkPrintList(LkList *L);
 LkNode *
 _LkLocateElemFront(LkList *L, int i)
 {
+    if(i==1)
+        return L;
+
     int j = 1;
     LkNode *op = L->next;
     while(op->next && j++ < i-1)

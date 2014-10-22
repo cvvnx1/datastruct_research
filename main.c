@@ -1,24 +1,59 @@
-#include "llist.h"
+#include "stack.h"
 #include <stdio.h>
 
 void main()
 {
+    SqdStack *S = SqdInit();
+    SElemType e;
+    for(e=0;e<5;e++)
+        SqdPush(S, 1, &e);
+    for(e=0;e<8;e++)
+        SqdPush(S, 2, &e);
+    printf("---Stack---\n");
+    SqdPrintElem(S);
+    printf("---pop---\n");
+    e = SqdPop(S, 1);
+    if(e!=-1)
+        printf("e for top1:%d\n", e);
+    e = SqdPop(S, 2);
+    if(e!=-1)
+        printf("e for top2:%d\n", e);
+    SqdPrintElem(S);
+
+/* --- SqStack example
+    SqStack *S = SqInit();
+    printf("stack full?%d\n", SqIsFull(S));
+    SElemType e;
+    for(e=0;e<100;e++)
+        SqPush(S, &e);
+    printf("---Stack---\n");
+    SqPrintElem(S);
+    printf("stack full?%d\n", SqIsFull(S));
+    printf("---pop---\n");
+    e = SqPop(S);
+    if(e!=-1)
+        printf("e:%d\n", e);
+    SqPrintElem(S);
+*/
+
+/* --- LkList example
     LkList *L = LkInitList(10);
     printf("---List---\n");
     LkPrintList(L);
     printf("---get---\n");
-    ElemType *k = LkGetElem(L, 11);
+    ElemType *k = LkGetElem(L, 1);
     if(*k)
         printf("k = %d\n", *k);
     printf("---insert---\n");
     ElemType insertE = 100001;
-    LkInsertElem(L, 11, &insertE);
+    LkInsertElem(L, 1, &insertE);
     LkPrintList(L);
     printf("---pop---\n");
-    ElemType *kk = LkPopElem(L, 10);
+    ElemType *kk = LkPopElem(L, 1);
     if(kk)
         printf("kk = %d\n", *kk);
     LkPrintList(L);
+*/
 
 /* ---  SqList example
     SqList *L = SqInitList(10);
