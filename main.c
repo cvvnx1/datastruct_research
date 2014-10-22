@@ -1,8 +1,17 @@
+//#include "llist.h"
 #include "stack.h"
 #include <stdio.h>
 
 void main()
 {
+    LkStack *S = LkInit();
+    SElemType e;
+    for(e=10;e<15;e++)
+        LkPush(S, &e);
+    printf("---Stack---\n");
+    LkPrintElem(S);
+
+/* --- SqdStack example
     SqdStack *S = SqdInit();
     SElemType e;
     for(e=1000;e<1005;e++)
@@ -34,6 +43,7 @@ void main()
         }
     }
     SqdPrintElem(S);
+*/
 
 /* --- SqStack example
     SqStack *S = SqInit();

@@ -6,11 +6,11 @@
 
 #define MAXSIZE 100
 
+typedef int SElemType;
+
 /*
     Seq stack
 */
-typedef int SElemType;
-
 typedef struct SqStack
 {
     SElemType data[MAXSIZE];
@@ -155,5 +155,69 @@ SqdPrintElem(SqdStack *s)
     printf("top2 -\n");
     for (j=s->top2;j<s->size+1;j++)
         printf("%d -> | %d |\n", j, s->data[j]);
+}
+
+/*
+    Link list stack
+*/
+typedef struct StackNode
+{
+    struct StackNode *next;
+    SElemType data;
+} StackNode;
+
+typedef struct LkStack
+{
+    struct StackNode *next;
+    int top;
+    int count;
+} LkStack;
+
+LkStack *
+LkInit()
+{
+    LkStack *l = malloc(sizeof(LkStack));
+    l->top = -1;
+    l->count = 0;
+    l->next = NULL;
+    return l;
+}
+
+int
+LkPush(LkStack *l, SElemType *e)
+{
+    if(!l || !e)
+        return FALSE;
+
+    StackNode *op = malloc(sizeof(StackNode));
+    op->data = *e;
+    op->next = l->next;
+
+    l->next = op;
+    l->top++;
+    l->count++;
+
+    return TRUE;
+}
+
+SElemType
+LkPop()
+{
+
+}
+
+void
+LkPrintElem(LkStack *l)
+{
+    if(!l || !l->next)
+        return;
+
+    StackNode *op = l->next;
+    while(op->next)
+    {
+        printf("| %d |\n", op->data);
+        op = op->next;
+    }
+    printf("| %d |\n", op->data);
 }
 
