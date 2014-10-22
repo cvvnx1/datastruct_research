@@ -149,7 +149,7 @@ SqdPrintElem(SqdStack *s)
 
     int j;
     printf("top1 -\n");
-    for(j=s->top1;j>0;j--)
+    for(j=s->top1;j>-1;j--)
         printf("%d -> | %d |\n", j, s->data[j]);
 
     printf("top2 -\n");

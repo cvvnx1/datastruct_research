@@ -5,19 +5,34 @@ void main()
 {
     SqdStack *S = SqdInit();
     SElemType e;
-    for(e=0;e<5;e++)
+    for(e=1000;e<1005;e++)
         SqdPush(S, 1, &e);
-    for(e=0;e<8;e++)
+    for(e=1000;e<1008;e++)
         SqdPush(S, 2, &e);
     printf("---Stack---\n");
     SqdPrintElem(S);
     printf("---pop---\n");
-    e = SqdPop(S, 1);
-    if(e!=-1)
-        printf("e for top1:%d\n", e);
-    e = SqdPop(S, 2);
-    if(e!=-1)
-        printf("e for top2:%d\n", e);
+    SElemType f;
+    for(e=0;e<100;e++)
+    {
+        f = SqdPop(S, 1);
+        if(f==-1)
+        {
+            break;
+        } else {
+            printf("f for top1:%d\n", f);
+        }
+    }
+    for(e=0;e<100;e++)
+    {
+        f = SqdPop(S, 2);
+        if(f==-1)
+        {
+            break;
+        } else {
+            printf("f for top2:%d\n", f);
+        }
+    }
     SqdPrintElem(S);
 
 /* --- SqStack example
