@@ -1,15 +1,30 @@
 //#include "llist.h"
-#include "stack.h"
+//#include "stack.h"
+#include "lib.h"
+#include "btree.h"
 #include <stdio.h>
 
 void main()
 {
+    tree *T = RootInit();
+    elem i;
+    for(i=0;i<20;i++)
+        InsertElem(T, NumberRandom(-50, 50));
+    printf("---PreOrderPrintElem---\n");
+    PreOrderPrintElem(T, 1, 1);
+    printf("---InOrderPrintElem---\n");
+    InOrderPrintElem(T, 1, 1);
+    printf("---PostOrderPrintElem---\n");
+    PostOrderPrintElem(T, 1, 1);
+
+/* --- LkStack example
     LkStack *S = LkInit();
     SElemType e;
     for(e=10;e<15;e++)
         LkPush(S, &e);
     printf("---Stack---\n");
     LkPrintElem(S);
+*/
 
 /* --- SqdStack example
     SqdStack *S = SqdInit();
